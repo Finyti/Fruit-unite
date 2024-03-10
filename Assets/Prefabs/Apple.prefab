@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 3760486932666515689}
   - component: {fileID: 5440813236271489029}
   - component: {fileID: 6440255655992854944}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Apple
-  m_TagString: Untagged
+  m_TagString: Fruit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -161,3 +161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb9e4aa22459f0846a2c6161e4bab3c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mergePoints: 15
+  destroyOnMerge: 0
+  mergePrefab: {fileID: 137714635958924541, guid: d199e2b3507a63446853831a09737072, type: 3}

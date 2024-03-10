@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 4367276808333997034}
   - component: {fileID: 5127153036757951012}
   - component: {fileID: 8183656813876878671}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Strawbery
-  m_TagString: Untagged
+  m_TagString: Fruit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -161,3 +161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb9e4aa22459f0846a2c6161e4bab3c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mergePoints: 3
+  destroyOnMerge: 0
+  mergePrefab: {fileID: 5095578133900853075, guid: 4f1bce7ae765d504bab04885e786bf30, type: 3}

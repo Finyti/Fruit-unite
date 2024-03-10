@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 9002359490795630520}
   - component: {fileID: 8845524494238961304}
   - component: {fileID: -8137471919442952920}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pineaple
-  m_TagString: Untagged
+  m_TagString: Fruit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -161,3 +161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb9e4aa22459f0846a2c6161e4bab3c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mergePoints: 45
+  destroyOnMerge: 0
+  mergePrefab: {fileID: 8634960020403055601, guid: 4fa45de541e64d74781c382f9fc7d434, type: 3}

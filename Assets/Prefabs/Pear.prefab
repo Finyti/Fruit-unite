@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 925677679608916419}
   - component: {fileID: 583414408369948309}
   - component: {fileID: 977765899997954096}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pear
-  m_TagString: Untagged
+  m_TagString: Fruit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -161,3 +161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb9e4aa22459f0846a2c6161e4bab3c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mergePoints: 28
+  destroyOnMerge: 0
+  mergePrefab: {fileID: 2023114076443467500, guid: fbd37d8a2fbb1514dbc788e1a61d216e, type: 3}

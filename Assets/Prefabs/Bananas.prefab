@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 7712924691623892815}
   - component: {fileID: 1692439687436863772}
   - component: {fileID: 1935314240602108464}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bananas
-  m_TagString: Untagged
+  m_TagString: Fruit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -161,3 +161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb9e4aa22459f0846a2c6161e4bab3c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mergePoints: 36
+  destroyOnMerge: 0
+  mergePrefab: {fileID: 5781113383022623372, guid: c6a4422361611f7439455c11d3e97d7e, type: 3}

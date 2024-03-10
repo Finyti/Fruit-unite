@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class FruitLogic : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public int mergePoints = 0;
+    public bool destroyOnMerge = false;
+    public GameObject mergePrefab;
+
     void Start()
     {
         
