@@ -7,15 +7,28 @@ public class FruitLogic : MonoBehaviour
     public int mergePoints = 0;
     public bool destroyOnMerge = false;
     public GameObject mergePrefab;
+    public FruitManager fruitManager;
 
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        var collisionObjectFL = collision.gameObject.GetComponent<FruitLogic>();
+        if (collisionObjectFL != null)
+        {
+            if(collisionObjectFL.mergePoints == mergePoints)
+            {
+                fruitManager.AddConnection(gameObject);
+            }
+        }
+    }
 }
+
