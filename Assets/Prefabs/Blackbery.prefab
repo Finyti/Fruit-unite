@@ -135,10 +135,10 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 4
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: 0.1
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9178362cc3aff6748b815b5bbca3d175, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -164,3 +164,4 @@ MonoBehaviour:
   mergePoints: 6
   destroyOnMerge: 0
   mergePrefab: {fileID: 2613871830830213000, guid: d04eda4ec4fb2ee499e5fd263822bfbd, type: 3}
+  fruitManager: {fileID: 0}

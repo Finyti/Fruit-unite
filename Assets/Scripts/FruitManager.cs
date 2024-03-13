@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.MemoryProfiler;
 using UnityEngine;
 
 public class FruitManager : MonoBehaviour
@@ -61,8 +62,14 @@ public class FruitManager : MonoBehaviour
         foreach (var conection in fruitConnections)
         {
             if (conection.secondFruit == null) continue;
-            var newFruit = Instantiate(conection.firstFruit.GetComponent<FruitLogic>().mergePrefab, conection.firstFruit.transform.position, conection.firstFruit.transform.rotation);
-            newFruit.GetComponent<FruitLogic>().fruitManager = gameObject.GetComponent<FruitManager>();
+            if(conection.firstFruit.GetComponent<FruitLogic>().mergePrefab != null)
+            {
+                var newFruit = Instantiate(conection.firstFruit.GetComponent<FruitLogic>().mergePrefab, conection.firstFruit.transform.position, conection.firstFruit.transform.rotation);
+                newFruit.GetComponent<FruitLogic>().fruitManager = gameObject.GetComponent<FruitManager>();
+            }
+
+
+            gameManager.AddScore(conection.firstFruit.GetComponent<FruitLogic>().mergePoints);
 
             Destroy(conection.firstFruit);
             Destroy(conection.secondFruit);

@@ -25,7 +25,7 @@ public class FruitDestributor : MonoBehaviour
         Vector3 mouseToWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         float mousePositionX = mouseToWorldPosition.x;
 
-        if (mousePositionX < destributorRange && -destributorRange < mousePositionX)
+        if (mousePositionX < destributorRange + 1 && -destributorRange < mousePositionX)
         {
 
             transform.position = new Vector2 (mousePositionX, transform.position.y);
@@ -51,7 +51,7 @@ public class FruitDestributor : MonoBehaviour
 
     public void FruitSpawn()
     {
-        int randomFruitIndex = Random.Range(0, fruitPrefab.Count - 1);
+        int randomFruitIndex = Random.Range(0, fruitPrefab.Count);
 
         //yield return new WaitForSeconds(spawnCooldown);
 
@@ -70,6 +70,8 @@ public class FruitDestributor : MonoBehaviour
         holdingFruit.GetComponent<Rigidbody2D>().gravityScale = 1;
         holdingFruit.transform.parent = null;
         holdingFruit.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        holdingFruit.transform.position += new Vector3(Random.Range(-0.05f, 0.05f), 0, 0);
+
         dropCooldown = 1;
         holdingFruit = null;
     }
