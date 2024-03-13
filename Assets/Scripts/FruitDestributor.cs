@@ -76,7 +76,10 @@ public class FruitDestributor : MonoBehaviour
 
         AudioManager.Play(fallSound, 3f);
         await new WaitForSeconds(0.3f);
-        holdingFruit.GetComponent<FruitLogic>().inGame = true;
+        if(holdingFruit != null)
+        {
+            holdingFruit.GetComponent<FruitLogic>().inGame = true;
+        }
         await new WaitForSeconds(spawnCooldown);
         holdingFruit = null;
 

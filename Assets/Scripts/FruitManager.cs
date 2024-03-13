@@ -17,6 +17,8 @@ public class FruitManager : MonoBehaviour
 
     public AudioClip mergeSound;
 
+    public GameObject mergeParticles;
+
     void Update()
     {
         if (!gameManager.gameGoing) return;
@@ -69,6 +71,7 @@ public class FruitManager : MonoBehaviour
             {
                 var newFruit = Instantiate(conection.firstFruit.GetComponent<FruitLogic>().mergePrefab, conection.firstFruit.transform.position, conection.firstFruit.transform.rotation);
                 newFruit.GetComponent<FruitLogic>().fruitManager = gameObject.GetComponent<FruitManager>();
+                var particles = Instantiate(mergeParticles, conection.firstFruit.transform.position, conection.firstFruit.transform.rotation);
             }
 
 
