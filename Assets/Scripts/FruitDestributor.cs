@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -7,21 +8,21 @@ public class FruitDestributor : MonoBehaviour
 {
     public List<GameObject> fruitPrefab = new List<GameObject>();
     public FruitManager fruitManager;
+    public GameManager gameManager;
     public float spawnCooldown;
-    public float dropCooldown;
+
+    public bool canDrop = false;
 
     public float destributorRange;
 
     GameObject holdingFruit = null;
-    void Start()
-    {
-        
-    }
+
+    public AudioClip fallSound;
 
 
     void Update()
     {
-
+        if (!gameManager.gameGoing) return;
         Vector3 mouseToWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         float mousePositionX = mouseToWorldPosition.x;
 
@@ -35,21 +36,15 @@ public class FruitDestributor : MonoBehaviour
 
         if (holdingFruit == null)
         {
-            spawnCooldown -= Time.deltaTime;
-            if (spawnCooldown <= 0)
-            {
-                FruitSpawn();
-            }
-            
+            FruitSpawn();
         }
-        dropCooldown -= Time.deltaTime;
-        if (Input.GetMouseButtonDown(0) && dropCooldown <= 0 && holdingFruit != null)
+        if (Input.GetMouseButtonDown(0) && holdingFruit != null && canDrop)
         {
             FruitDrop();
         }
     }
 
-    public void FruitSpawn()
+    public async void FruitSpawn()
     {
         int randomFruitIndex = Random.Range(0, fruitPrefab.Count);
 
@@ -62,19 +57,29 @@ public class FruitDestributor : MonoBehaviour
         holdingFruit.transform.parent = transform;
         holdingFruit.transform.position -= new Vector3(0.5f, 0.3f, 0);
         holdingFruit.GetComponent<FruitLogic>().fruitManager = fruitManager;
-        spawnCooldown = 1;
+
+        await new WaitForSeconds(0.3f);
+
+        canDrop = true;
     }
 
-    public void FruitDrop()
+    public async void FruitDrop()
     {
+        canDrop = false;
+
         holdingFruit.GetComponent<Rigidbody2D>().gravityScale = 1;
         holdingFruit.transform.parent = null;
         holdingFruit.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         holdingFruit.transform.position += new Vector3(Random.Range(-0.05f, 0.05f), 0, 0);
 
-        dropCooldown = 1;
+        AudioManager.Play(fallSound, 3f);
+        await new WaitForSeconds(0.3f);
+        holdingFruit.GetComponent<FruitLogic>().inGame = true;
+        await new WaitForSeconds(spawnCooldown);
         holdingFruit = null;
     }
+
+
 
 
 }

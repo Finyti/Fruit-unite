@@ -16,8 +16,11 @@ public class FruitManager : MonoBehaviour
         public GameObject secondFruit = null;
     }
 
+    public AudioClip mergeSound;
+
     void Update()
     {
+        if (!gameManager.gameGoing) return;
         if (fruitConnections.Count >= 1)
         {
             MergeFruits();
@@ -26,6 +29,7 @@ public class FruitManager : MonoBehaviour
 
     public void AddConnection(GameObject newFruit)
     {
+        if (!gameManager.gameGoing) return;
         if (allFruits.Contains(newFruit)) return;
         if (fruitConnections.Count == 0)
         {
@@ -73,6 +77,8 @@ public class FruitManager : MonoBehaviour
 
             Destroy(conection.firstFruit);
             Destroy(conection.secondFruit);
+
+            AudioManager.Play(mergeSound, 1f);
         }
         for (int i = fruitConnections.Count-1; i >= 0; i--)
         {
@@ -81,4 +87,5 @@ public class FruitManager : MonoBehaviour
         }
 
     }
+
 }

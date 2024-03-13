@@ -9,6 +9,8 @@ public class FruitLogic : MonoBehaviour
     public GameObject mergePrefab;
     public FruitManager fruitManager;
 
+    public bool inGame = false;
+
     void Start()
     {
         
