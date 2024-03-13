@@ -11,6 +11,7 @@ public class FruitDestributor : MonoBehaviour
     public GameManager gameManager;
     public float spawnCooldown;
 
+    public bool canSpawn = true;
     public bool canDrop = false;
 
     public float destributorRange;
@@ -34,7 +35,7 @@ public class FruitDestributor : MonoBehaviour
 
 
 
-        if (holdingFruit == null)
+        if (holdingFruit == null && canSpawn)
         {
             FruitSpawn();
         }
@@ -61,6 +62,7 @@ public class FruitDestributor : MonoBehaviour
         await new WaitForSeconds(0.3f);
 
         canDrop = true;
+        canSpawn = false;
     }
 
     public async void FruitDrop()
@@ -77,6 +79,8 @@ public class FruitDestributor : MonoBehaviour
         holdingFruit.GetComponent<FruitLogic>().inGame = true;
         await new WaitForSeconds(spawnCooldown);
         holdingFruit = null;
+
+        canSpawn = true;
     }
 
 
